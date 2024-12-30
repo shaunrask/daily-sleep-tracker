@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: rgb(98, 189, 231);
+    color:white;
+}
+
+header {
+    font-size: x-large;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+#date {
+    padding-top: 100px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+#display-date {
+    color:white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background:rgb(116, 223, 255);
+    border-radius: 15px;
+    border: 0.5px rgb(83, 170, 228) solid;
+    box-shadow: 0 0.3em 1em rgb(80, 159, 196);
+    padding: 5px 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    cursor: pointer;
+}
+
+#arrow-prev, #arrow-next {
+    color:white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    background:rgb(116, 223, 255);
+    border-radius: 15px;
+    border: 1px rgb(72, 156, 212) solid;
+    box-shadow: 0 0.3em 1em rgb(76, 146, 179);
+    padding: 5px 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+#arrow-prev:hover, #arrow-next:hover {
+    background: rgb(105, 211, 243);
+    transition: 0.2s;
+}
+
+#arrow-prev:active, #arrow-next:active {
+    transform: scale(0.90);
+}
+
+#time {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.container {
+    min-width: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container img {
+    padding-left:34px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dropdown {
+    min-width: 5em;
+    position: relative;
+    margin: 0.3em;
+}
+
+.dropdown *{
+    box-sizing: border-box;
+}
+
+.select {
+    background:rgb(69, 147, 199);
+    border-radius: 0.5em;
+    border: 2px rgb(69, 147, 199) solid;
+    padding: 0.6em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.select-clicked {
+    border: 2px rgb(43, 117, 167) solid;
+    box-shadow: 0 0 0.8em rgb(93, 149, 187);
+}
+
+.select:hover {
+    background: rgb(57, 122, 165);
+}
+
+.caret {
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid white;
+    transition: 0.3s;
+}
+
+.caret-rotate {
+    transform: rotate(180deg);
+}
+
+.menu{
+    list-style: none;
+    padding: 0.2em 0.5em;
+    background: rgb(68, 113, 143);
+    border: 1px rgb(56, 92, 116) solid;
+    box-shadow: 0 0.5em 1em rgb(76, 146, 179);
+    border-radius: 0.5em;
+    color: rgb(224, 224, 224);
+    position: absolute;
+    top: 3em;
+    left: 50%;
+    width: 100%;
+    transform: translateX(-50%);
+    opacity: 0;
+    display: none;
+    transition: 0.2s;
+    z-index: 1;
+    max-height: 23.5rem;
+    overflow-y: auto;
+    scrollbar-width: none; 
+    -ms-overflow-style: none;
+}
+
+.menu::-webkit-scrollbar {
+    display: none; 
+}
+
+.menu li {
+    padding: 0.7em 0.5em;
+    border-radius: 0.5em;
+    margin: 0.3em 0;
+    cursor: pointer;
+}
+
+.menu li:hover {
+    background: rgb(51, 85, 107);
+}
+
+.active {
+    background: rgb(51, 85, 107);
+}
+
+.menu-open {
+    display: block;
+    opacity: 1;
+}
+
+#new-entry {
+    color:white;
+    font-family: 'Poppins', sans-serif;
+    background:rgb(116, 223, 255);
+    border-radius: 15px;
+    border: 0.5px rgb(83, 170, 228) solid;
+    box-shadow: 0 0.5em 1em rgb(76, 146, 179);
+    padding: 0 15px;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    gap: 5px;
+    margin: auto;
+    cursor: pointer;
+}
+
+#new-entry img {
+    width: 45px;
+    height: 45px;
+    margin: auto;
+}
+
+#new-entry:hover {
+    background: rgb(105, 211, 243);
+    transition: 0.2s;
+}
+
+#new-entry:active {
+    transform: scale(0.95);
+}
