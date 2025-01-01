@@ -79,7 +79,7 @@ header {
     padding-left:34px;
 }
 
-.buttons {
+.start-time, .end-time {
     display: flex;
     justify-content: center;
     align-items: center;

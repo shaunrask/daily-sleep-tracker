@@ -1,3 +1,5 @@
+//Drop down 
+
 const dropdowns = document.querySelectorAll('.dropdown');
 
 dropdowns.forEach(dropdown => {
@@ -26,6 +28,8 @@ dropdowns.forEach(dropdown => {
         });
     });
 });
+
+//Date range
 
 const dateInput = document.getElementById('display-date');
 const prevDay = document.getElementById('arrow-prev');
@@ -58,3 +62,61 @@ function adjustDate(days) {
 
 prevDay.addEventListener('click', () => adjustDate(-1));
 nextDay.addEventListener('click', () => adjustDate(1));
+
+//Saving/Displaying entries
+
+let entries = JSON.parse(localStorage.getItem('sleepEntries')) || [];
+const entriesContainer = document.getElementById('entries-container');
+
+
+function renderEntries() {
+    //Clear out existing HTML
+    entriesContainer.innerHTML = '';
+
+    //For each entry, add <div>
+    entries.forEach((entry, index) => {
+        const entryDiv = document.createElement('div');
+        entryDiv.classList.add('sleep-entry');
+        entryDiv.innerText = `Date: ${entry.dateRange} | Start: ${entry.startTime} | End: ${entry.endTime}`;
+        entriesContainer.appendChild(entryDiv);
+    });
+}
+
+//Call render initially (to show entries if they already exist in localStorage)
+renderEntries();
+
+const newEntryButton = document.getElementById('new-entry');
+
+//Handle click -> gather data -> add entry -> save -> re-render
+newEntryButton.addEventListener('click', () => {
+    //Grab the current date range
+    const dateRange = dateInput.value;
+
+    //Grab start time from the dropdowns
+    const startHour = document.querySelector('.start-time .input-hour .selected').innerText;
+    const startMin = document.querySelector('.start-time .input-min .selected').innerText;
+    const startAMPM = document.querySelector('.start-time .twelve-hour .selected').innerText;
+    const startTime = `${startHour}:${startMin} ${startAMPM}`;
+
+    //Grab end time from the dropdowns
+    const endHour = document.querySelector('.end-time .input-hour .selected').innerText;
+    const endMin = document.querySelector('.end-time .input-min .selected').innerText;
+    const endAMPM = document.querySelector('.end-time .twelve-hour .selected').innerText;
+    const endTime = `${endHour}:${endMin} ${endAMPM}`;
+
+    //Make a new entry object
+    const newEntry = {
+        dateRange,
+        startTime,
+        endTime
+    };
+
+    //Push to our array in memory
+    entries.push(newEntry);
+
+    //Save the updated array to localStorage
+    localStorage.setItem('sleepEntries', JSON.stringify(entries));
+
+    //Re-render the list
+    renderEntries();
+});
